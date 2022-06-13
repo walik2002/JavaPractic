@@ -1,5 +1,8 @@
 public class IsStringNumber {
 
+    private IsStringNumber() {
+    }
+
     //Метод проверяющий является ли строка числом
     public static boolean isNumeric(String str) {
         try {

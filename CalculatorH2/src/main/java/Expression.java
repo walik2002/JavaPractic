@@ -1,36 +1,36 @@
 public class Expression {
-    private Money first_value;
-    private Money second_value;
+    private Money firstValue;
+    private Money secondValue;
     private int operation;
-    private int result_currency;
+    private int resultCurrency;
 
-    public Expression(String first_value, String second_value, int operation, int result_currency) {
-        this.first_value = new Money(first_value);
-        this.second_value = new Money(second_value);
+    public Expression(String firstValue, String secondValue, int operation, int resultCurrency) {
+        this.firstValue = new Money(firstValue);
+        this.secondValue = new Money(secondValue);
         this.operation = operation;
-        this.result_currency = result_currency;
+        this.resultCurrency = resultCurrency;
     }
 
     public String getExpression(){
-        String expression =first_value.getValue();
+        String expression = firstValue.getValue();
         if(operation ==1){
             expression+=" + ";
         }
         else expression +=" - ";
-        expression+= second_value.getValue() +" = ";
+        expression+= secondValue.getValue() +" = ";
         float res;
-        if(result_currency==1){
+        if(resultCurrency ==1){
             if(operation==1)
-                res = first_value.toDollar().getNumber()+second_value.toDollar().getNumber();
+                res = firstValue.toDollar().getNumber()+ secondValue.toDollar().getNumber();
             else
-                res = first_value.toDollar().getNumber()-second_value.toDollar().getNumber();
+                res = firstValue.toDollar().getNumber()- secondValue.toDollar().getNumber();
             expression+="$"+res;
         }
         else {
             if(operation==1)
-                res = first_value.toRubles().getNumber()+second_value.toRubles().getNumber();
+                res = firstValue.toRubles().getNumber()+ secondValue.toRubles().getNumber();
             else
-                res = first_value.toRubles().getNumber()-second_value.toRubles().getNumber();
+                res = firstValue.toRubles().getNumber()- secondValue.toRubles().getNumber();
             expression+=res+"rub";
         }
         return expression;
