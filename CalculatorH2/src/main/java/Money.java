@@ -43,9 +43,8 @@ public class Money {
             if(IsStringNumber.isNumeric(str.substring(1)))
                 return true;
         }
-        else if(str.endsWith("rub")){
-            if(IsStringNumber.isNumeric(str.substring(0,str.length()-3)));
-                return true;
+        else if(str.endsWith("rub") && IsStringNumber.isNumeric(str.substring(0,str.length()-3))){
+              return true;
         }
         return false;
     }
